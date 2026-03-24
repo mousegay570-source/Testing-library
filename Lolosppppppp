@@ -8,10 +8,9 @@ local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 local PlayerMouse = Player:GetMouse()
 
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.DisplayOrder = 9999
-ScreenGui.IgnoreGuiInset = true
+local zIndexBehavior = Enum.ZIndexBehavior.Sibling
+local displayOrder = 9999
+local ignoreGuiInset = true
 
 local redzlib = {
 	Themes = {
