@@ -7092,7 +7092,7 @@ local function startLoop()
     end)
 end
 
-Family:AddToggle({
+Troll:AddToggle({
     Name = "kill all using shoppingCart",
     Default = false,
     Callback = function(v)
