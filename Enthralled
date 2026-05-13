@@ -14,18 +14,20 @@ local Tab1 = Window:MakeTab({"credits", "rbxassetid://18505728201"})
 
 Tab1:AddDiscordInvite({
     Name = "Fenzoxy",
-    Description = "Roblox server Exploiter hangout",
-    Logo = "rbxassetid://6128508306",
+    Description = "join my server",
+    Logo = "rbxassetid://86752361952263",
     Invite = "https://discord.gg/bZyMGmjqUe",
 })
 
 Window:SelectTab(Tab1)
 
-local Section = Tab1:AddSection({"Info"})
+local Section = Tab1:AddSection({"Credits"})
 
-local Paragraph = Tab1:AddParagraph({"Collaboration", "Fenzoxy (Owner)\nAnosaranike\ndenis"})
+local Paragraph = Tab1:AddParagraph({"Collaboration", "Fenzoxy (Owner)\n I don't have a developer bro, I made this myself "})
 
-local Paragraph = Tab1:AddParagraph({"Update log", "see in discord"})
+local Paragraph = Tab1:AddParagraph({"Roblox Username : Z_G1967", "yeah bro pls follow my Roblox account"})
+
+local Paragraph = Tab1:AddParagraph({"Update log", "see in my discord"})
 
   local Dialog = Window:Dialog({
     Title = "join discord for feedback",
@@ -56,6 +58,17 @@ game.StarterGui:SetCore("SendNotification", {
   })
   
 local TrollTab = Window:MakeTab({ Title = "Scripts Trolls", Icon = "rbxassetid://13364900349" })
+
+local Section = TrollTab:AddSection({"anti zepeto"})
+
+TrollTab:AddButton({
+    Name = "Anti Zepeto script (beta)",
+    Callback = function()
+   
+  loadstring(game:HttpGet("https://pastefy.app/5WwMxfpz/raw"))()
+  
+  end
+})
 
 TrollTab:AddSection({ "Invisible" })
 
@@ -9212,3 +9225,23 @@ task.spawn(function()
 end)
 
 local hub = Window:MakeTab({"Other script", "lock"})
+
+local Section = hub:AddSection({"universal script"})
+
+hub:AddButton({
+    Name = "infinite yield",
+    Callback = function()
+   
+  loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  
+  end
+})
+
+hub:AddButton({
+    Name = "Vehicle fly",
+    Callback = function()
+   
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20Fe%20Vehicle%20Fly%20GUI%20script'))()
+  
+  end
+})
