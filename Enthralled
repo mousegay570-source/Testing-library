@@ -59,17 +59,6 @@ game.StarterGui:SetCore("SendNotification", {
   
 local TrollTab = Window:MakeTab({ Title = "Scripts Trolls", Icon = "rbxassetid://13364900349" })
 
-local Section = TrollTab:AddSection({"anti zepeto"})
-
-TrollTab:AddButton({
-    Name = "Anti Zepeto script (beta)",
-    Callback = function()
-   
-  loadstring(game:HttpGet("https://pastefy.app/5WwMxfpz/raw"))()
-  
-  end
-})
-
 TrollTab:AddSection({ "Invisible" })
 
 TrollTab:AddButton({
@@ -9224,24 +9213,3 @@ task.spawn(function()
     end
 end)
 
-local hub = Window:MakeTab({"Other script", "lock"})
-
-local Section = hub:AddSection({"universal script"})
-
-hub:AddButton({
-    Name = "infinite yield",
-    Callback = function()
-   
-  loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-  
-  end
-})
-
-hub:AddButton({
-    Name = "Vehicle fly",
-    Callback = function()
-   
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20Fe%20Vehicle%20Fly%20GUI%20script'))()
-  
-  end
-})
