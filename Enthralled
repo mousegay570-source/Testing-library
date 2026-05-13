@@ -5472,7 +5472,7 @@ end
 
 local Troll = Window:MakeTab({ Title = "Troll Players", Icon = "rbxassetid://131153193945220" })
 
-local Section = Family:AddSection({"Troll player"})
+local Section = Troll:AddSection({"Troll player"})
 
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -5542,7 +5542,7 @@ local function stopLoop()
     print("[AutoInvite] Toggle OFF - stop.")
 end
 
-Family:AddToggle({
+Troll:AddToggle({
     Name = "Invite family all",
     Default = false,
     Callback = function(v)
@@ -7092,7 +7092,7 @@ local function startLoop()
     end)
 end
 
-Family:AddToggle({
+Troll:AddToggle({
     Name = "kill all using shoppingCart",
     Default = false,
     Callback = function(v)
@@ -8737,6 +8737,8 @@ workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character:WaitFor
 
 local tool = Window:MakeTab({"Tools", "tool"})
 
+local Paragraph = tool:AddParagraph({"tutorial", "If there is a notification, click accept"})
+
 tool:AddButton({
     Name = "Chainsaw",
     Callback = function()
@@ -8747,6 +8749,160 @@ tool:AddButton({
             "ToolGiveToServer",
             targetPlayer,
             "Chainsaw"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Cannon",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "Cannon"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Crystal",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "Crystal"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Water Balloon",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "Water Balloon"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Glider",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "Glider"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Crystal",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "UraniumRod"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Basket ball",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "GoldenBasketball"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Egg laucnher",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "EggLauncher"
         }
 
         local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
@@ -8965,11 +9121,122 @@ player.CharacterAdded:Connect(function()
     print("Personagem resetado - Tudo desativado")
 end)
 
+local zp = Window:MakeTab({"Anti Zepeto", "trash"})
+
+local isOrbiting = false
+local selectedTarget = "All Players"
+local teleportMode = "Default (Position)"
+
+local TELEPORT_POS = Vector3.new(-1363, 140, -4819)
+local TELEPORT_TIME = 3
+local ORBIT_TIME = 2
+local ORBIT_SPEED = 5
+local ORBIT_RADIUS = 8
+local ORBIT_HEIGHT = 5
+
+zp:AddDropdown({
+    Name = "Teleport Mode",
+    Description = "select destination",
+    Options = {"Default (Position)", "To Player"},
+    Default = "Default (Position)",
+    Callback = function(Value)
+        teleportMode = Value
+    end
+})
+
+local PlayerDropdown = zp:AddDropdown({
+    Name = "Target Player",
+    Description = "select target",
+    Options = {"All Players"},
+    Default = "All Players",
+    Callback = function(Value)
+        selectedTarget = Value
+    end
+})
+
+local function updateDropdown()
+    local names = {"All Players"}
+    for _, p in ipairs(game:GetService("Players"):GetPlayers()) do
+        if p ~= game:GetService("Players").LocalPlayer then
+            table.insert(names, p.Name)
+        end
+    end
+    PlayerDropdown:Refresh(names, true)
+end
+
+game:GetService("Players").PlayerAdded:Connect(updateDropdown)
+game:GetService("Players").PlayerRemoving:Connect(updateDropdown)
+updateDropdown()
+
+zp:AddToggle({
+    Name = "Bring player",
+    Default = false,
+    Callback = function(v)
+        isOrbiting = v
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE"):WaitForChild("1NoMoto1rVehicle1s")
+
+        if isOrbiting then
+            re:FireServer("CargoBike")
+            
+            task.spawn(function()
+                task.wait(1)
+                
+                while isOrbiting do
+                    local targets = {}
+                    if selectedTarget == "All Players" then
+                        targets = game:GetService("Players"):GetPlayers()
+                    else
+                        local p = game:GetService("Players"):FindFirstChild(selectedTarget)
+                        if p then table.insert(targets, p) end
+                    end
+
+                    for _, targetPlayer in ipairs(targets) do
+                        if not isOrbiting then break end
+                        local lp = game:GetService("Players").LocalPlayer
+                        if targetPlayer == lp or not targetPlayer.Character then continue end
+                        
+                        local root = lp.Character and lp.Character:FindFirstChild("HumanoidRootPart")
+                        local targetRoot = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+                        if not root or not targetRoot then continue end
+
+                        if teleportMode == "Default (Position)" then
+                            root.CFrame = CFrame.new(TELEPORT_POS)
+                        else
+                            root.CFrame = targetRoot.CFrame
+                        end
+                        
+                        local tStart = tick()
+                        repeat task.wait() until tick() - tStart >= TELEPORT_TIME or not isOrbiting
+                        if not isOrbiting then break end
+
+                        local oStart = tick()
+                        while tick() - oStart < ORBIT_TIME and isOrbiting do
+                            if targetRoot and targetRoot.Parent then
+                                local angle = tick() * ORBIT_SPEED
+                                local offset = Vector3.new(
+                                    math.cos(angle) * ORBIT_RADIUS,
+                                    ORBIT_HEIGHT,
+                                    math.sin(angle) * ORBIT_RADIUS
+                                )
+                                root.CFrame = CFrame.new(targetRoot.Position + offset, targetRoot.Position)
+                            end
+                            game:GetService("RunService").Heartbeat:Wait()
+                        end
+                    end
+                    task.wait()
+                end
+            end)
+        else
+            re:FireServer("Delete NoMotorVehicle")
+        end
+    end
+})
+
 local eva = Window:MakeTab({"Event", "rbxassetid://16776729560"})
 
 local Section = eva:AddSection({"Coming soon"})
 
-local pr = Window:MakeTab({"protection", "protection"})
+local pr = Window:MakeTab({"protection", "shield"})
 
 local antiSitConnection = nil
 local antiSitEnabled = false
@@ -9030,7 +9297,7 @@ pr:AddToggle({
     end
 })
 
-local chat = Window:MakeTab({"Chat", "chat"})
+local chat = Window:MakeTab({"Chat", "messagecircle"})
 
 local toggle = false
 
