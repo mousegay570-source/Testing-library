@@ -14,18 +14,16 @@ local Tab1 = Window:MakeTab({"credits", "rbxassetid://18505728201"})
 
 Tab1:AddDiscordInvite({
     Name = "Fenzoxy",
-    Description = "join my server",
+    Description = "Roblox server Exploiter hangout",
     Logo = "rbxassetid://86752361952263",
     Invite = "https://discord.gg/bZyMGmjqUe",
 })
 
 Window:SelectTab(Tab1)
 
-local Section = Tab1:AddSection({"Credits"})
+local Section = Tab1:AddSection({"Info"})
 
-local Paragraph = Tab1:AddParagraph({"Collaboration", "Fenzoxy (Owner)\n I don't have a developer bro, I made this myself "})
-
-local Paragraph = Tab1:AddParagraph({"Roblox Username : Z_G1967", "yeah bro pls follow my Roblox account"})
+local Paragraph = Tab1:AddParagraph({"Collaboration", "Fenzoxy (Owner)"})
 
 local Paragraph = Tab1:AddParagraph({"Update log", "see in my discord"})
 
@@ -8786,28 +8784,6 @@ tool:AddButton({
 })
 
 tool:AddButton({
-    Name = "Crystal",
-    Callback = function()
-      
-        local targetPlayer = game:GetService("Players").LocalPlayer
-        
-        local args = {
-            "ToolGiveToServer",
-            targetPlayer,
-            "Crystal"
-        }
-
-        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
-        if re then
-            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
-            if event then
-                event:FireServer(unpack(args))
-            end
-        end
-    end
-})
-
-tool:AddButton({
     Name = "Water Balloon",
     Callback = function()
       
@@ -8916,6 +8892,7 @@ tool:AddButton({
         end
     end
 })
+
 
 local name = Window:MakeTab({"RolePlayName", "tag"})
 
@@ -9123,7 +9100,7 @@ player.CharacterAdded:Connect(function()
     print("Personagem resetado - Tudo desativado")
 end)
 
-local eva = Window:MakeTab({"Event", "star"})
+local eva = Window:MakeTab({"Event", "rbxassetid://16776729560"})
 
 local Section = eva:AddSection({"Coming soon"})
 
@@ -9213,3 +9190,5 @@ task.spawn(function()
     end
 end)
 
+
+local hub = Window:MakeTab({"Other script", "lock"})
