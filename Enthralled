@@ -6,7 +6,7 @@ local Window = redzlib:MakeWindow({
   SaveFolder = "goXpp.lua"
 })
 Window:AddMinimizeButton({
-    Button = { Image = "rbxassetid://9764091676", BackgroundTransparency = 0 },
+    Button = { Image = "rbxassetid://94410984129098", BackgroundTransparency = 0 },
     Corner = { CornerRadius = UDim.new(35, 1) },
 })
 
@@ -15,7 +15,7 @@ local Tab1 = Window:MakeTab({"credits", "rbxassetid://18505728201"})
 Tab1:AddDiscordInvite({
     Name = "Fenzoxy",
     Description = "Roblox server Exploiter hangout",
-    Logo = "rbxassetid://86752361952263",
+    Logo = "rbxassetid://94410984129098",
     Invite = "https://discord.gg/bZyMGmjqUe",
 })
 
@@ -9100,7 +9100,7 @@ player.CharacterAdded:Connect(function()
     print("Personagem resetado - Tudo desativado")
 end)
 
-local eva = Window:MakeTab({"Event", "rbxassetid://16776729560"})
+local eva = Window:MakeTab({"Event", "star"})
 
 local Section = eva:AddSection({"Coming soon"})
 
