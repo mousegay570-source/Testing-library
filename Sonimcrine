@@ -6,7 +6,7 @@ local Window = redzlib:MakeWindow({
   SaveFolder = "goXpp.lua"
 })
 Window:AddMinimizeButton({
-    Button = { Image = "rbxassetid://9764091676", BackgroundTransparency = 0 },
+    Button = { Image = "rbxassetid://94410984129098", BackgroundTransparency = 0 },
     Corner = { CornerRadius = UDim.new(35, 1) },
 })
 
@@ -15,7 +15,7 @@ local Tab1 = Window:MakeTab({"credits", "rbxassetid://18505728201"})
 Tab1:AddDiscordInvite({
     Name = "Fenzoxy",
     Description = "Roblox server Exploiter hangout",
-    Logo = "rbxassetid://6128508306",
+    Logo = "rbxassetid://94410984129098",
     Invite = "https://discord.gg/bZyMGmjqUe",
 })
 
@@ -23,9 +23,9 @@ Window:SelectTab(Tab1)
 
 local Section = Tab1:AddSection({"Info"})
 
-local Paragraph = Tab1:AddParagraph({"Collaboration", "Fenzoxy (Owner)\nAnosaranike\ndenis"})
+local Paragraph = Tab1:AddParagraph({"Collaboration", "Fenzoxy (Owner)"})
 
-local Paragraph = Tab1:AddParagraph({"Update log", "see in discord"})
+local Paragraph = Tab1:AddParagraph({"Update log", "see in my discord"})
 
   local Dialog = Window:Dialog({
     Title = "join discord for feedback",
@@ -8737,7 +8737,7 @@ workspace.CurrentCamera.CameraSubject=game.Players.LocalPlayer.Character:WaitFor
 
 local tool = Window:MakeTab({"Tools", "tool"})
 
-local Paragraph = Tab1:AddParagraph({"tutorial", "If there is a notification, click accept"})
+local Paragraph = tool:AddParagraph({"tutorial", "If there is a notification, click accept"})
 
 tool:AddButton({
     Name = "Chainsaw",
@@ -8784,7 +8784,7 @@ tool:AddButton({
 })
 
 tool:AddButton({
-    Name = "Crystal",
+    Name = "Water Balloon",
     Callback = function()
       
         local targetPlayer = game:GetService("Players").LocalPlayer
@@ -8792,7 +8792,7 @@ tool:AddButton({
         local args = {
             "ToolGiveToServer",
             targetPlayer,
-            "Crystal"
+            "Water Balloon"
         }
 
         local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
@@ -8804,6 +8804,95 @@ tool:AddButton({
         end
     end
 })
+
+tool:AddButton({
+    Name = "Glider",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "Glider"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Crystal",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "UraniumRod"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Basket ball",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "GoldenBasketball"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
+tool:AddButton({
+    Name = "Egg laucnher",
+    Callback = function()
+      
+        local targetPlayer = game:GetService("Players").LocalPlayer
+        
+        local args = {
+            "ToolGiveToServer",
+            targetPlayer,
+            "EggLauncher"
+        }
+
+        local re = game:GetService("ReplicatedStorage"):WaitForChild("RE", 5)
+        if re then
+            local event = re:WaitForChild("1Playe1rTrigge1rEven1t", 5)
+            if event then
+                event:FireServer(unpack(args))
+            end
+        end
+    end
+})
+
 
 local name = Window:MakeTab({"RolePlayName", "tag"})
 
@@ -9011,11 +9100,11 @@ player.CharacterAdded:Connect(function()
     print("Personagem resetado - Tudo desativado")
 end)
 
-local eva = Window:MakeTab({"Event", "rbxassetid://16776729560"})
+local eva = Window:MakeTab({"Event", "star"})
 
 local Section = eva:AddSection({"Coming soon"})
 
-local pr = Window:MakeTab({"protection", "protection"})
+local pr = Window:MakeTab({"protection", "shield"})
 
 local antiSitConnection = nil
 local antiSitEnabled = false
@@ -9076,7 +9165,7 @@ pr:AddToggle({
     end
 })
 
-local chat = Window:MakeTab({"Chat", "chat"})
+local chat = Window:MakeTab({"Chat", "messagecircle"})
 
 local toggle = false
 
@@ -9101,63 +9190,5 @@ task.spawn(function()
     end
 end)
 
-local antiSitConnection = nil
-local antiSitEnabled = false
-
-Family:AddToggle({
-    Name = "Anti-Sit",
-    Default = false,
-    Callback = function(state)
-        antiSitEnabled = state
-        local LocalPlayer = game:GetService("Players").LocalPlayer
-
-        if state then
-            local function applyAntiSit(character)
-                local humanoid = character:FindFirstChild("Humanoid")
-                if humanoid then
-                    humanoid.Sit = false
-                    humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, false)
-                    if antiSitConnection then
-                        antiSitConnection:Disconnect()
-                    end
-                    antiSitConnection = humanoid.Seated:Connect(function(isSeated)
-                        if isSeated then
-                            humanoid.Sit = false
-                            humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
-                        end
-                    end)
-                end
-            end
-
-            if LocalPlayer.Character then
-                applyAntiSit(LocalPlayer.Character)
-            end
-
-            local characterAddedConnection
-            characterAddedConnection = LocalPlayer.CharacterAdded:Connect(function(character)
-                if not antiSitEnabled then
-                    characterAddedConnection:Disconnect()
-                    return
-                end
-                local humanoid = character:WaitForChild("Humanoid", 5)
-                if humanoid then
-                    applyAntiSit(character)
-                end
-            end)
-        else
-            if antiSitConnection then
-                antiSitConnection:Disconnect()
-                antiSitConnection = nil
-            end
-
-            if LocalPlayer.Character then
-                local humanoid = LocalPlayer.Character:FindFirstChild("Humanoid")
-                if humanoid then
-                    humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, true)
-                end
-            end
-        end
-    end
-})
 
 local hub = Window:MakeTab({"Other script", "lock"})
