@@ -57,6 +57,31 @@ game.StarterGui:SetCore("SendNotification", {
   
 local TrollTab = Window:MakeTab({ Title = "Scripts Trolls", Icon = "rbxassetid://13364900349" })
 
+TrollTab:AddSection({ "Quick chat" })
+
+local chat = false
+
+chat:AddToggle({
+    Name = "Spam Quick chat",
+    Default = false,
+    Callback = function(v)
+        chat = v
+    end
+})
+
+task.spawn(function()
+    while true do
+        if toggle then
+            local args = {
+                "Want to play with me?"
+            }
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("QuickChat:Request"):InvokeServer(unpack(args))
+            print("QuickChat fired")
+        end
+        task.wait(1)
+    end
+end)
+
 TrollTab:AddSection({ "Invisible" })
 
 TrollTab:AddButton({
@@ -9165,30 +9190,63 @@ pr:AddToggle({
     end
 })
 
-local chat = Window:MakeTab({"Chat", "messagecircle"})
+local antifling = nil
+local enableantifling = false
 
-local toggle = false
-
-chat:AddToggle({
-    Name = "Spam Quick chat",
+pr:AddToggle({
+    Name = "Anti Fling",
     Default = false,
-    Callback = function(v)
-        toggle = v
+    Callback = function(state)
+        enableantifling = state
+        local LocalPlayer = game:GetService("Players").LocalPlayer
+
+        if state then
+            local function applyAntiSit(character)
+                local humanoid = character:FindFirstChild("Humanoid")
+                if humanoid then
+                    humanoid.Sit = false
+                    humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, false)
+                    if antiSitConnection then
+                        antiSitConnection:Disconnect()
+                    end
+                    antiSitConnection = humanoid.Seated:Connect(function(isSeated)
+                        if isSeated then
+                            humanoid.Sit = false
+                            humanoid:ChangeState(Enum.HumanoidStateType.GettingUp)
+                        end
+                    end)
+                end
+            end
+
+            if LocalPlayer.Character then
+                applyAntiSit(LocalPlayer.Character)
+            end
+
+            local characterAddedConnection
+            characterAddedConnection = LocalPlayer.CharacterAdded:Connect(function(character)
+                if not antiSitEnabled then
+                    characterAddedConnection:Disconnect()
+                    return
+                end
+                local humanoid = character:WaitForChild("Humanoid", 5)
+                if humanoid then
+                    applyAntiSit(character)
+                end
+            end)
+        else
+            if antifling then
+                antifling:Disconnect()
+                antifling = nil
+            end
+
+            if LocalPlayer.Character then
+                local humanoid = LocalPlayer.Character:FindFirstChild("Humanoid")
+                if humanoid then
+                    humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated, true)
+                end
+            end
+        end
     end
 })
-
-task.spawn(function()
-    while true do
-        if toggle then
-            local args = {
-                "Want to play with me?"
-            }
-            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("QuickChat:Request"):InvokeServer(unpack(args))
-            print("QuickChat fired")
-        end
-        task.wait(1)
-    end
-end)
-
 
 local hub = Window:MakeTab({"Other script", "lock"})
