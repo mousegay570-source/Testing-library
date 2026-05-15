@@ -61,7 +61,7 @@ TrollTab:AddSection({ "Quick chat" })
 
 local chat = false
 
-chat:AddToggle({
+TrollTab :AddToggle({
     Name = "Spam Quick chat",
     Default = false,
     Callback = function(v)
