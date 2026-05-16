@@ -9250,3 +9250,54 @@ pr:AddToggle({
 })
 
 local hub = Window:MakeTab({"Other script", "lock"})
+
+local Section = hub:AddSection({"universal"})
+
+hub:AddButton({
+    Name = "FPS System",
+    Description = "Universal",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/V3NtNvZx/raw"))()
+    end
+})
+
+hub:AddButton({
+    Name = "FE Jerk Off Hub Matrix",
+    Description = "Universal",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ExploitFin/AquaMatrix/refs/heads/AquaMatrix/AquaMatrix"))()
+    end
+})
+
+hub:AddButton({
+    Name = "TP Tool",
+    Description = "Universal",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/err0r129/KptHadesBlair/main/Bao.lua"))()
+    end
+})
+
+hub:AddButton({
+    Name = "InfiniteYield",
+    Description = "Universal",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+    end
+})
+
+hub:AddButton({
+    Name = "Vehicle Fly",
+    Description = "Universal",
+    Callback = function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/refs/heads/main/Roblox%20Fe%20Vehicle%20Fly%20GUI%20script'))()
+    end
+})
+
+hub:AddButton({
+    Name = "Tiktok emote",
+    Description = "Universal",
+    Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Gazer-Ha/Free-emote/refs/heads/main/Delta%20mad%20stuffs"))()
+    end
+})
+
