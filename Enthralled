@@ -5207,7 +5207,7 @@ local function toggleHouseRGB(state)
 end
 
 local isUnbanActive = false
-local HouseTab = Window:MakeTab({"Casas", "home"})
+local HouseTab = Window:MakeTab({"House", "home"})
 local SelectHouse = nil
 local NoclipDoor = nil
 
